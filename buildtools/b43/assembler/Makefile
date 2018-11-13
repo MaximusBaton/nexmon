@@ -21,7 +21,12 @@ PREFIX		?= /usr/local
 CFLAGS		?= -O2 -fomit-frame-pointer -pipe
 CFLAGS		+= -std=gnu99 -D_GNU_SOURCE \
 		   -Wall -Wextra -Wformat=2 -Wundef -Wno-unused-parameter \
-		   -Wshadow -Wpointer-arith
+		   -Wshadow -Wpointer-arith \
+           -Wno-shift-negative-value \
+           -Wignored-qualifiers \
+           -Wno-sign-compare \
+           -Wno-discarded-qualifiers
+
 SPARSEFLAGS	= $(CFLAGS) -D__transparent_union__=__unused__ -D_STRING_ARCH_unaligned=1 \
 		  -D__builtin_stpcpy=stpcpy
 #LDFLAGS		+= -lfl
